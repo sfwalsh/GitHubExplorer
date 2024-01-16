@@ -53,7 +53,9 @@ struct UserDetailsView: View {
                 AsyncImage(url: nil) { image in
                     image.scaledToFill()
                 } placeholder: {
-                    Color.green
+                    Image(systemName: "person.fill")
+                        .scaledToFill()
+                        .foregroundStyle(Palette.text)
                 }
                 .frame(width: 60, height: 60)
                 .clipped()

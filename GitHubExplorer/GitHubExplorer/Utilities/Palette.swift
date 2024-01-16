@@ -14,4 +14,5 @@ struct Palette {
     static let secondaryText = Color("SecondaryText")
     static let listItemBackground = Color("ListItemBackground")
     static let shadow = Color("Shadow")
+    static let imageBackground = Color("ImageBackground")
 }

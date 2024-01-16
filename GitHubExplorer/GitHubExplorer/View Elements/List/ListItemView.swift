@@ -40,11 +40,13 @@ struct ListItemView: View {
             AsyncImage(url: viewModel.imageURL) { image in
                 image.scaledToFill()
             } placeholder: {
-                Color.green
+                Image(systemName: "person.fill")
+                    .scaledToFill()
+                    .foregroundStyle(Palette.text)
             }
             .frame(width: 48, height: 48)
             .clipped()
-            .background(Palette.listItemBackground)
+            .background(Palette.imageBackground)
             .clipShape(Circle())
         }
     }

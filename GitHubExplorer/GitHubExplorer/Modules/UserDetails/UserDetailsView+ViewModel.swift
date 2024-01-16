@@ -21,7 +21,8 @@ extension UserDetailsView {
                         .init(
                             id: "0",
                             title: "GitHub Project",
-                            url: URL(string: "https://googl.com")!
+                            developmentLanguage: "Swift",
+                            starCountText: "2", url: URL(string: "https://googl.com")!
                         ),
                 count: 1
             )

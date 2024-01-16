@@ -34,13 +34,16 @@ struct UserDetailsView: View {
     
     @ViewBuilder
     private func buildRepositoryItemView(for repositoryItem: RepositoryItem) -> some View {
-        Link(destination: URL(string: "https://google.com")!) {
-            ListItemView(
-                viewModel: .init(
-                    titleDisplayText: repositoryItem.title,
-                    imageURL: nil
+        if let url = repositoryItem.url {
+            Link(destination: url) {
+                RepositoryListItemView(
+                    titleText: repositoryItem.title,
+                    starCountText: repositoryItem.starCountText,
+                    description: repositoryItem.description, developmentLanguage: repositoryItem.developmentLanguage
                 )
-            )
+            }
+        } else {
+            EmptyView()
         }
     }
     

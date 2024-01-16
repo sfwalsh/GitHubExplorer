@@ -23,6 +23,9 @@
 		C6696E8A2B56D0E3008460C9 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E892B56D0E3008460C9 /* UserItem.swift */; };
 		C6696E8E2B56D117008460C9 /* UserListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */; };
 		C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */; };
+		C6696E922B56D1EC008460C9 /* RepositoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E912B56D1EC008460C9 /* RepositoryListItemView.swift */; };
+		C6696E942B56D2B1008460C9 /* ListItemViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E932B56D2B1008460C9 /* ListItemViewBackground.swift */; };
+		C6696E972B56D57C008460C9 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E962B56D57C008460C9 /* ChipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		C6696E892B56D0E3008460C9 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListView+ViewModel.swift"; sourceTree = "<group>"; };
 		C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailsView+ViewModel.swift"; sourceTree = "<group>"; };
+		C6696E912B56D1EC008460C9 /* RepositoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListItemView.swift; sourceTree = "<group>"; };
+		C6696E932B56D2B1008460C9 /* ListItemViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewBackground.swift; sourceTree = "<group>"; };
+		C6696E962B56D57C008460C9 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C6696E7C2B56BA86008460C9 /* List */,
+				C6696E962B56D57C008460C9 /* ChipView.swift */,
 			);
 			path = "View Elements";
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C6696E792B56BA74008460C9 /* ListItemView.swift */,
+				C6696E932B56D2B1008460C9 /* ListItemViewBackground.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			children = (
 				C6696E842B56C4BA008460C9 /* UserDetailsView.swift */,
 				C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */,
+				C6696E952B56D3CC008460C9 /* Bespoke Subviews */,
 			);
 			path = UserDetails;
 			sourceTree = "<group>";
@@ -208,6 +217,14 @@
 				C6696E892B56D0E3008460C9 /* UserItem.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		C6696E952B56D3CC008460C9 /* Bespoke Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E912B56D1EC008460C9 /* RepositoryListItemView.swift */,
+			);
+			path = "Bespoke Subviews";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,8 +361,11 @@
 				C6696E502B56B03B008460C9 /* RootView.swift in Sources */,
 				C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */,
 				C6696E782B56B762008460C9 /* UserListView.swift in Sources */,
+				C6696E972B56D57C008460C9 /* ChipView.swift in Sources */,
 				C6696E8E2B56D117008460C9 /* UserListView+ViewModel.swift in Sources */,
 				C6696E822B56C135008460C9 /* Palette.swift in Sources */,
+				C6696E942B56D2B1008460C9 /* ListItemViewBackground.swift in Sources */,
+				C6696E922B56D1EC008460C9 /* RepositoryListItemView.swift in Sources */,
 				C6696E4E2B56B03B008460C9 /* GitHubExplorerApp.swift in Sources */,
 				C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */,
 				C6696E7A2B56BA74008460C9 /* ListItemView.swift in Sources */,

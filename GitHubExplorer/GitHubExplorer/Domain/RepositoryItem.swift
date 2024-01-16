@@ -11,21 +11,21 @@ struct RepositoryItem: Identifiable {
     let id: String
     let title: String
     let developmentLanguage: String?
-    let starCount: Int
+    let starCountText: String
     let description: String?
     let url: URL?
     
     init(id: String,
          title: String,
          developmentLanguage: String? = nil,
-         starCount: Int = 0,
+         starCountText: String,
          description: String? = nil,
          url: URL? = nil
     ) {
         self.id = id
         self.title = title
         self.developmentLanguage = developmentLanguage
-        self.starCount = starCount
+        self.starCountText = starCountText
         self.description = description
         self.url = url
     }

@@ -25,17 +25,11 @@ struct ListItemView: View {
             
             Image(systemName: "arrow.forward")
                 .font(.system(size: 17.0))
-                .foregroundColor(Color.gray)
+                .foregroundColor(Palette.text)
         }
         .padding(16)
         .background(
-            RoundedRectangle(cornerRadius: 6)
-                .fill(Palette.listItemBackground)
-                .shadow(
-                    color: Palette.shadow,
-                    radius: 5,
-                    y: 1
-                )
+            ListItemViewBackground()
         )
     }
     
@@ -59,13 +53,8 @@ struct ListItemView: View {
     private func buildTextContent() -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(viewModel.titleDisplayText)
-                .font(
-                    .system(
-                        size: 17,
-                        weight: .semibold,
-                        design: .default
-                    )
-                )
+                .font(.callout)
+                .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(Palette.text)
         }

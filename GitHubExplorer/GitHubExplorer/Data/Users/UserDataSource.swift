@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UserDataSource {
-    func fetchUsers() -> AnyPublisher<[UserDTO], Error>
+    func fetchUsers(since: Int?) -> AnyPublisher<[UserDTO], Error>
     func fetchUserDetails(userId: String) -> AnyPublisher<UserDetailDTO, Error>
 }
 
@@ -20,8 +20,16 @@ struct RemoteUserDataSource: UserDataSource {
         self.apiClient = apiClient
     }
     
-    func fetchUsers() -> AnyPublisher<[UserDTO], Error> {
-        guard let url = URL(string: "https://api.github.com/users") else {
+    func fetchUsers(since: Int?) -> AnyPublisher<[UserDTO], Error> {
+        guard var components = URLComponents(string: "https://api.github.com/users") else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        if let since = since {
+            components.queryItems = [URLQueryItem(name: "since", value: "\(since)")]
+        }
+        
+        guard let url = components.url else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
         

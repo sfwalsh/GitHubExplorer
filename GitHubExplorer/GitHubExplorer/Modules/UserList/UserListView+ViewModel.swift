@@ -8,9 +8,18 @@
 import Foundation
 import Combine
 
+enum PaginationState {
+    case idle
+    case loading
+    case error(error: Error)
+}
+
 extension UserListView {
     final class ViewModel: ObservableObject {
         
+        private var nextSince: Int?
+        
+        @Published var paginationState: PaginationState = .idle
         @Published var userItems: [UserItem] = []
         private var cancellables: Set<AnyCancellable> = []
         
@@ -25,18 +34,29 @@ extension UserListView {
         }
         
         func fetchData() {
-            getUsersList.invoke(requestValues: .init())
+            guard case .idle = paginationState else {
+                return
+            }
+            
+            paginationState = .loading
+            getUsersList.invoke(requestValues: .init(since: nextSince))
                 .receive(on: RunLoop.main)
                 .sink { [weak self] completion in
+                    guard let self = self else { return }
                     switch completion {
                     case .finished:
-                        break
+                        self.paginationState = .idle
                     case .failure(let error):
-                        print(error.localizedDescription)
-                        break
+                        self.paginationState = .error(error: error)
                     }
                 } receiveValue: { [weak self] userDTOs in
-                    self?.userItems = userDTOs.map { UserItem(from: $0) }
+                    guard let self = self else { return }
+                    self.userItems.append(contentsOf: userDTOs.map { UserItem(from: $0) })
+                    
+                    // get the next since value from the last user item
+                    if let lastUserItem = userDTOs.last {
+                        self.nextSince = lastUserItem.id
+                    }
                 }
                 .store(in: &cancellables)
         }

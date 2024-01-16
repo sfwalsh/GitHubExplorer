@@ -10,10 +10,12 @@ import Foundation
 struct UserDTO: Decodable {
     
     enum CodingKeys: String, CodingKey {
+        case id
         case username = "login"
         case avatarURL = "avatar_url"
     }
     
+    let id: Int
     let username: String
     let avatarURL: URL?
     
@@ -23,5 +25,6 @@ struct UserDTO: Decodable {
 
         self.avatarURL = URL(string: avatarURLString)
         self.username = try container.decode(String.self, forKey: .username)
+        self.id = try container.decode(Int.self, forKey: .id)
     }
 }

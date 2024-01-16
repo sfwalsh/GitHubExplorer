@@ -10,7 +10,7 @@ import Combine
 
 protocol UserRepository {
     func fetchUserDetails(userId: String) -> AnyPublisher<UserDetailDTO, Error>
-    func fetchUsers() -> AnyPublisher<[UserDTO], Error>
+    func fetchUsers(since: Int?) -> AnyPublisher<[UserDTO], Error>
 }
 
 struct DefaultUserRepository: UserRepository {
@@ -24,7 +24,7 @@ struct DefaultUserRepository: UserRepository {
         dataSource.fetchUserDetails(userId: userId)
     }
     
-    func fetchUsers() -> AnyPublisher<[UserDTO], Error> {
-        dataSource.fetchUsers()
+    func fetchUsers(since: Int?) -> AnyPublisher<[UserDTO], Error> {
+        dataSource.fetchUsers(since: since)
     }
 }

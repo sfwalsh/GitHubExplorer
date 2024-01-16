@@ -20,11 +20,12 @@ struct GetUsersList: UseCase {
     }
     
     func invoke(requestValues: RequestValues) -> AnyPublisher<[UserDTO], Error> {
-        repository.fetchUsers()
+        repository.fetchUsers(since: requestValues.since)
     }
 }
 
-
 extension GetUsersList {
-    struct RequestValues { }
+    struct RequestValues {
+        let since: Int?
+    }
 }

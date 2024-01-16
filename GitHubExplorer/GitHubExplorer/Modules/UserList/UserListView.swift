@@ -18,6 +18,7 @@ struct UserListView: View {
                     ForEach(viewModel.userItems) { userItem in
                         buildItemView(forUserItem: userItem)
                     }
+                    buildLastRowView()
                 }.padding(.top, 16)
             }
         }
@@ -39,6 +40,26 @@ struct UserListView: View {
                     imageURL: userItem.imageURL
                 )
             )
+        }
+    }
+    
+    @ViewBuilder
+    private func buildLastRowView() -> some View {
+        HStack(alignment: .center) {
+            switch viewModel.paginationState {
+            case .loading:
+                Spacer()
+                ProgressView()
+                Spacer()
+            case .idle:
+                EmptyView()
+            case .error(let error):
+                EmptyView() // todo: Implement Error
+            }
+        }
+        .frame(height: 52)
+        .onAppear {
+            viewModel.fetchData()
         }
     }
 }

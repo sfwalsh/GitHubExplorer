@@ -43,6 +43,7 @@
 		C6696EBF2B570274008460C9 /* UserRepoDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EBE2B570274008460C9 /* UserRepoDatasource.swift */; };
 		C6696EC12B570C31008460C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EC02B570C31008460C9 /* UserDTO.swift */; };
 		C6696EC32B570D7E008460C9 /* GetUsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EC22B570D7E008460C9 /* GetUsersList.swift */; };
+		C6D3C6CC2B57212400525347 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3C6CB2B57212400525347 /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		C6696EBE2B570274008460C9 /* UserRepoDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoDatasource.swift; sourceTree = "<group>"; };
 		C6696EC02B570C31008460C9 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		C6696EC22B570D7E008460C9 /* GetUsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersList.swift; sourceTree = "<group>"; };
+		C6D3C6CB2B57212400525347 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				C6696E9E2B56E0E6008460C9 /* UseCases */,
 				C6696E9F2B56E0F2008460C9 /* Models */,
+				C6D3C6CB2B57212400525347 /* LoadingState.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				C6696EA12B56E226008460C9 /* UserDetailDTO.swift in Sources */,
 				C6696EB52B56F935008460C9 /* APIClient.swift in Sources */,
 				C6696EA92B56E6E5008460C9 /* MappingError.swift in Sources */,
+				C6D3C6CC2B57212400525347 /* LoadingState.swift in Sources */,
 				C6696E942B56D2B1008460C9 /* ListItemViewBackground.swift in Sources */,
 				C6696E922B56D1EC008460C9 /* RepositoryListItemView.swift in Sources */,
 				C6696EBF2B570274008460C9 /* UserRepoDatasource.swift in Sources */,

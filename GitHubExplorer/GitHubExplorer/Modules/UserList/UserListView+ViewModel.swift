@@ -8,18 +8,12 @@
 import Foundation
 import Combine
 
-enum PaginationState {
-    case idle
-    case loading
-    case error(error: Error)
-}
-
 extension UserListView {
     final class ViewModel: ObservableObject {
         
         private var nextSince: Int?
         
-        @Published var paginationState: PaginationState = .idle
+        @Published var paginationState: LoadingState = .idle
         @Published var userItems: [UserItem] = []
         private var cancellables: Set<AnyCancellable> = []
         

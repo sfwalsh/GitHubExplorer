@@ -14,6 +14,7 @@ struct UserDetailsView: View {
         static let followers = "Followers"
         static let fullnamePlaceholder = "User"
         static let repositoriesSectionTitle = "Repositories"
+        static let emptyStateText = "No Repos were found."
     }
     
     @ObservedObject var viewModel: ViewModel
@@ -22,16 +23,10 @@ struct UserDetailsView: View {
         ZStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
-                    if let userDetail = viewModel.userDetail {
-                        buildUserDetailsHeader(for: userDetail)
-                    } else { // if fetching
-                        buildProgressView()
-                    }
+                    buildHeaderView()
                     Divider()
                     Section {
-                        ForEach(viewModel.repos) { repositoryItem in
-                            buildRepositoryItemView(for: repositoryItem)
-                        }
+                        buildRepositoryCollectionView()
                     } header: {
                         Text(Strings.repositoriesSectionTitle)
                             .font(.headline)
@@ -54,6 +49,57 @@ struct UserDetailsView: View {
             Spacer()
             ProgressView()
             Spacer()
+        }
+    }
+    
+    @ViewBuilder
+    private func buildHeaderView() -> some View {
+        switch viewModel.userFetchState {
+        case .idle:
+            if let userDetail = viewModel.userDetail {
+               buildUserDetailsHeader(for: userDetail)
+            } else {
+                EmptyView()
+            }
+        case .loading:
+            buildProgressView()
+        case .error(let error):
+            EmptyView() // TODO: Build error view
+        }
+    }
+    
+    @ViewBuilder
+    private func buildEmptyStateView(with text: String) -> some View {
+        HStack {
+            Spacer()
+            VStack(alignment: .center, spacing: 16) {
+                Spacer()
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                Text(text)
+                    .font(.title2)
+                Spacer()
+            }
+            Spacer()
+        }   
+    }
+    
+    @ViewBuilder
+    private func buildRepositoryCollectionView() -> some View {
+        switch viewModel.repoFetchState {
+        case .idle:
+            if viewModel.repos.count > 0 {
+                ForEach(viewModel.repos) { repositoryItem in
+                    buildRepositoryItemView(for: repositoryItem)
+                }
+            } else {
+                buildEmptyStateView(with: Strings.emptyStateText)
+            }
+        case .loading:
+            buildProgressView()
+        case .error(let error):
+            EmptyView()
         }
     }
     

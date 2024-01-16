@@ -20,6 +20,9 @@ extension UserDetailsView {
             userItem.username
         }
         
+        @Published var userFetchState: LoadingState = .idle
+        @Published var repoFetchState: LoadingState = .idle
+        
         @Published var userDetail: UserDetailViewItem?
         @Published var repos: [RepoItem] = []
         
@@ -41,16 +44,20 @@ extension UserDetailsView {
         }
         
         private func fetchUserDetails() {
+            guard case .idle = userFetchState else {
+                return
+            }
+            userFetchState = .loading
+        
             getUserDetails
                 .invoke(requestValues: .init(username: userItem.username))
                 .receive(on: RunLoop.main)
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        break
+                        self?.userFetchState = .idle
                     case .failure(let error):
-                        print(error.localizedDescription)
-                        break
+                        self?.userFetchState = .error(error: error)
                     }
                 } receiveValue: { [weak self] userDetailDTO in
                     self?.userDetail = UserDetailViewItem(from: userDetailDTO)
@@ -59,15 +66,19 @@ extension UserDetailsView {
         }
         
         private func fetchRepoList() {
+            guard case .idle = repoFetchState else {
+                return
+            }
+
+            repoFetchState = .loading
             getUserRepos.invoke(requestValues: .init(username: userItem.username))
                 .receive(on: RunLoop.main)
                 .sink { [weak self] completion in
                     switch completion {
                     case .finished:
-                        break
+                        self?.repoFetchState = .idle
                     case .failure(let error):
-                        print(error.localizedDescription)
-                        break
+                        self?.repoFetchState = .error(error: error)
                     }
                 } receiveValue: { [weak self] repoDTOs in
                     self?.repos = repoDTOs.map { RepoItem(from: $0) }

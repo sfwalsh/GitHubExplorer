@@ -13,6 +13,14 @@ protocol APIClient {
 }
 
 struct DefaultAPIClient: APIClient {
+    
+    private enum Headers: String {
+        case auth = "Authorization"
+        case userAgent = "User-Agent"
+        case accept = "Accept"
+        case apiVersion = "X-GitHub-Api-Version"
+    }
+    
     func fetchData<T: Decodable>(with request: URLRequest) -> AnyPublisher<T, Error> {
         
         guard let githubToken = ProcessInfo.processInfo.environment["GITHUB_TOKEN"] else {
@@ -21,9 +29,12 @@ struct DefaultAPIClient: APIClient {
         }
         
         var authenticatedRequest = request
-        authenticatedRequest.addValue("Bearer \(githubToken)", forHTTPHeaderField: "Authorization")
-        
-        return URLSession.shared.dataTaskPublisher(for: request)
+        authenticatedRequest.addValue("Bearer \(githubToken)", forHTTPHeaderField: Headers.auth.rawValue)
+        authenticatedRequest.addValue("GitHubExplorer", forHTTPHeaderField: Headers.userAgent.rawValue)
+        authenticatedRequest.addValue("application/vnd.github+json", forHTTPHeaderField: Headers.accept.rawValue)
+        authenticatedRequest.addValue("2022-11-28", forHTTPHeaderField: Headers.apiVersion.rawValue)
+
+        return URLSession.shared.dataTaskPublisher(for: authenticatedRequest)
             .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()

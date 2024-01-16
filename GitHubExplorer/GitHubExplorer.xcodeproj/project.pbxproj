@@ -42,6 +42,7 @@
 		C6696EBC2B570220008460C9 /* UserRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EBB2B570220008460C9 /* UserRepoRepository.swift */; };
 		C6696EBF2B570274008460C9 /* UserRepoDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EBE2B570274008460C9 /* UserRepoDatasource.swift */; };
 		C6696EC12B570C31008460C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EC02B570C31008460C9 /* UserDTO.swift */; };
+		C6696EC32B570D7E008460C9 /* GetUsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EC22B570D7E008460C9 /* GetUsersList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		C6696EBB2B570220008460C9 /* UserRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoRepository.swift; sourceTree = "<group>"; };
 		C6696EBE2B570274008460C9 /* UserRepoDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoDatasource.swift; sourceTree = "<group>"; };
 		C6696EC02B570C31008460C9 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		C6696EC22B570D7E008460C9 /* GetUsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				C6696E982B56DF5A008460C9 /* GetUserDetails.swift */,
+				C6696EC22B570D7E008460C9 /* GetUsersList.swift */,
 				C6696EA42B56E2E7008460C9 /* GetUserRepos.swift */,
 				C6696E9C2B56E0B5008460C9 /* UseCase.swift */,
 			);
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6696E9D2B56E0B5008460C9 /* UseCase.swift in Sources */,
+				C6696EC32B570D7E008460C9 /* GetUsersList.swift in Sources */,
 				C6696E502B56B03B008460C9 /* RootView.swift in Sources */,
 				C6696EC12B570C31008460C9 /* UserDTO.swift in Sources */,
 				C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */,

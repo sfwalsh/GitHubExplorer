@@ -9,7 +9,8 @@ import SwiftUI
 
 struct UserListView: View {
     
-    let viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         ZStack {
             ScrollView {
@@ -19,6 +20,9 @@ struct UserListView: View {
                     }
                 }.padding(.top, 16)
             }
+        }
+        .onAppear {
+            viewModel.fetchData()
         }
         .navigationTitle("Users")
     }
@@ -40,5 +44,5 @@ struct UserListView: View {
 }
 
 #Preview {
-    UserListView(viewModel: .init())
+    UserListBuilder.Default.build(requestValues: .init())
 }

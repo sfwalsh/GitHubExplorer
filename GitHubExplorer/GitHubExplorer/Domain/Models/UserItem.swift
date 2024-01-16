@@ -16,4 +16,9 @@ struct UserItem: Identifiable {
         self.username = username
         self.imageURL = imageURL
     }
+    
+    init(from dto: UserDTO) {
+        self.username = dto.username
+        self.imageURL = dto.avatarURL
+    }
 }

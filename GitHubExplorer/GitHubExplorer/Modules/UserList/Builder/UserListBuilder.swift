@@ -15,7 +15,13 @@ enum UserListBuilder {
         typealias ViewType = UserListView
         
         static func build(requestValues: RequestValues) -> UserListView? {
-            UserListView(viewModel: .init())
+            let apiClient = DefaultAPIClient()
+            let userDatasource = RemoteUserDataSource(apiClient: apiClient)
+            let userRepository = DefaultUserRepository(dataSource: userDatasource)
+            let getUsersList = GetUsersList(repository: userRepository)
+            let viewModel = UserListView.ViewModel(userItems: [], getUsersList: getUsersList)
+            
+            return UserListView(viewModel: viewModel)
         }
         
         struct RequestValues { }

@@ -15,7 +15,10 @@ enum UserDetailsBuilder {
         typealias ViewType = UserDetailsView
         
         static func build(requestValues: RequestValues) -> UserDetailsView? {
-            let getUserDetails = GetUserDetails()
+            let apiClient = DefaultAPIClient()
+            let datasource = RemoteUserDetailDataSource(apiClient: apiClient)
+            let repository = DefaultUserDetailRepository(dataSource: datasource)
+            let getUserDetails = GetUserDetails(repository: repository)
             let getUserRepos = GetUserRepos()
             let viewModel = UserDetailsView
                 .ViewModel(

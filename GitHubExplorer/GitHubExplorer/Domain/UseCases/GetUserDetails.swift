@@ -12,9 +12,15 @@ struct GetUserDetails: UseCase {
     // GET /users/*
     typealias T = RequestValues
     typealias U = UserDetailDTO
+    
+    private let repository: UserDetailRepository
+    
+    init(repository: UserDetailRepository) {
+        self.repository = repository
+    }
+    
     func invoke(requestValues: RequestValues) -> AnyPublisher<UserDetailDTO, Error> {
-        return Fail(error: NSError(domain: "", code: 0))
-            .eraseToAnyPublisher()
+        repository.fetchUserDetails(userId: requestValues.username)
     }
 }
 

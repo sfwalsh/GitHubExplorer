@@ -38,7 +38,8 @@ struct ListItemView: View {
     private func buildImageContent() -> some View {
         ZStack(alignment: .bottomTrailing) {
             AsyncImage(url: viewModel.imageURL) { image in
-                image.scaledToFill()
+                image.resizable()
+                    .scaledToFill()
             } placeholder: {
                 Image(systemName: "person.fill")
                     .scaledToFill()

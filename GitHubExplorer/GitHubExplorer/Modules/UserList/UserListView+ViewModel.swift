@@ -10,8 +10,8 @@ import Foundation
 extension UserListView {
     final class ViewModel: ObservableObject {
         let userItems: [UserItem] = [
-            .init(username: "user1"),
-            .init(username: "user2")
+            .init(username: "sfwalsh"),
+            .init(username: "stephenfwalsh")
         ]
     }
 }

@@ -9,27 +9,52 @@ import SwiftUI
 
 struct UserDetailsView: View {
     
-    let viewModel: ViewModel
+    private enum Strings {
+        static let following = "Following"
+        static let followers = "Followers"
+        static let fullnamePlaceholder = "User"
+        static let repositoriesSectionTitle = "Repositories"
+    }
+    
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         ZStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
-                    buildUserDetailsHeader()
+                    if let userDetail = viewModel.userDetail {
+                        buildUserDetailsHeader(for: userDetail)
+                    } else { // if fetching
+                        buildProgressView()
+                    }
                     Divider()
                     Section {
                         ForEach(viewModel.repositories) { repositoryItem in
                             buildRepositoryItemView(for: repositoryItem)
                         }
                     } header: {
-                        Text("Repositories")
+                        Text(Strings.repositoriesSectionTitle)
                             .font(.headline)
                     }
                 }
                 .padding(16)
             }
         }
+        .onAppear {
+            viewModel.fetchData()
+        }
         .navigationTitle(viewModel.titleText)
+    }
+    
+    // MARK: Sub-builders
+    
+    @ViewBuilder
+    private func buildProgressView() -> some View {
+        HStack(alignment: .center) {
+            Spacer()
+            ProgressView()
+            Spacer()
+        }
     }
     
     @ViewBuilder
@@ -48,35 +73,36 @@ struct UserDetailsView: View {
     }
     
     @ViewBuilder
-    private func buildUserDetailsHeader() -> some View {
+    private func buildUserDetailsHeader(for userDetail: UserDetailViewItem) -> some View {
         HStack(alignment: .center) {
-                AsyncImage(url: nil) { image in
-                    image.scaledToFill()
-                } placeholder: {
-                    Image(systemName: "person.fill")
-                        .scaledToFill()
-                        .foregroundStyle(Palette.text)
-                }
-                .frame(width: 60, height: 60)
-                .clipped()
-                .background(Palette.listItemBackground)
-                .clipShape(Circle())
-                
+            AsyncImage(url: userDetail.avatarURL) { image in
+                image.resizable()
+                    .scaledToFill()
+            } placeholder: {
+                Image(systemName: "person.fill")
+                    .scaledToFill()
+                    .foregroundStyle(Palette.text)
+            }
+            .frame(width: 60, height: 60)
+            .clipped()
+            .background(Palette.listItemBackground)
+            .clipShape(Circle())
+            
             VStack(alignment: .leading, spacing: 8) {
-                Text("Quinn Quinlan")
+                Text(userDetail.fullName ?? Strings.fullnamePlaceholder)
                     .font(.title3)
                     .bold()
                 
                 HStack(spacing: 24) {
                     VStack(alignment: .leading) {
-                        Text("10")
+                        Text("\(userDetail.followerCount)")
                             .fontWeight(.bold)
-                        Text("Followers")
+                        Text(Strings.followers)
                     }
                     VStack(alignment: .leading) {
-                        Text("100")
+                        Text("\(userDetail.followingCount)")
                             .fontWeight(.bold)
-                        Text("Following")
+                        Text(Strings.following)
                     }
                 }
             }
@@ -87,6 +113,6 @@ struct UserDetailsView: View {
 }
 
 #Preview {
-    let item = UserItem(username: "Quinlan")
+    let item = UserItem(username: "sfwalsh")
     return UserDetailsBuilder.Default.build(requestValues: .init(userItem: item))
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 extension UserDetailsView {
     final class ViewModel: ObservableObject {
@@ -19,6 +20,8 @@ extension UserDetailsView {
             userItem.username
         }
         
+        @Published var userDetail: UserDetailViewItem?
+
         var repositories: [RepositoryItem] {
             .init(
                 repeating:
@@ -33,6 +36,8 @@ extension UserDetailsView {
             .filter { $0.url != nil }
         }
         
+        private var cancellables: Set<AnyCancellable> = []
+
         init(
             from userItem: UserItem,
             getUserDetails: GetUserDetails,
@@ -41,6 +46,25 @@ extension UserDetailsView {
             self.userItem = userItem
             self.getUserDetails = getUserDetails
             self.getUserRepos = getUserRepos
+        }
+        
+        func fetchData() {
+            getUserDetails
+                .invoke(requestValues: .init(username: userItem.username))
+                .receive(on: RunLoop.main)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { [weak self] userDetailDTO in
+                    print(userDetailDTO)
+                    self?.userDetail = UserDetailViewItem(from: userDetailDTO)
+                }
+                .store(in: &cancellables)
         }
     }
 }

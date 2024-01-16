@@ -19,6 +19,10 @@
 		C6696E802B56C0C7008460C9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6696E7F2B56C0C7008460C9 /* Colors.xcassets */; };
 		C6696E822B56C135008460C9 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E812B56C135008460C9 /* Palette.swift */; };
 		C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E842B56C4BA008460C9 /* UserDetailsView.swift */; };
+		C6696E882B56D0C4008460C9 /* RepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E872B56D0C4008460C9 /* RepositoryItem.swift */; };
+		C6696E8A2B56D0E3008460C9 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E892B56D0E3008460C9 /* UserItem.swift */; };
+		C6696E8E2B56D117008460C9 /* UserListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */; };
+		C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		C6696E7F2B56C0C7008460C9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C6696E812B56C135008460C9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		C6696E842B56C4BA008460C9 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		C6696E872B56D0C4008460C9 /* RepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItem.swift; sourceTree = "<group>"; };
+		C6696E892B56D0E3008460C9 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
+		C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserListView+ViewModel.swift"; sourceTree = "<group>"; };
+		C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailsView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 			children = (
 				C6696E4D2B56B03B008460C9 /* GitHubExplorerApp.swift */,
 				C6696E4F2B56B03B008460C9 /* RootView.swift */,
+				C6696E8C2B56D0ED008460C9 /* Domain */,
 				C6696E832B56C138008460C9 /* Utilities */,
 				C6696E7D2B56BB95008460C9 /* Modules */,
 				C6696E7B2B56BA79008460C9 /* View Elements */,
@@ -170,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C6696E772B56B762008460C9 /* UserListView.swift */,
+				C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -186,8 +196,18 @@
 			isa = PBXGroup;
 			children = (
 				C6696E842B56C4BA008460C9 /* UserDetailsView.swift */,
+				C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */,
 			);
 			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		C6696E8C2B56D0ED008460C9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E872B56D0C4008460C9 /* RepositoryItem.swift */,
+				C6696E892B56D0E3008460C9 /* UserItem.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,11 +342,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6696E502B56B03B008460C9 /* RootView.swift in Sources */,
+				C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */,
 				C6696E782B56B762008460C9 /* UserListView.swift in Sources */,
+				C6696E8E2B56D117008460C9 /* UserListView+ViewModel.swift in Sources */,
 				C6696E822B56C135008460C9 /* Palette.swift in Sources */,
 				C6696E4E2B56B03B008460C9 /* GitHubExplorerApp.swift in Sources */,
 				C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */,
 				C6696E7A2B56BA74008460C9 /* ListItemView.swift in Sources */,
+				C6696E882B56D0C4008460C9 /* RepositoryItem.swift in Sources */,
+				C6696E8A2B56D0E3008460C9 /* UserItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

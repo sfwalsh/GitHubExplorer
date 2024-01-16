@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-struct UserItem: Identifiable {
-    var id: String { username }
-    let username: String
-    let imageURL: URL?
-    
-    init(username: String, imageURL: URL? = nil) {
-        self.username = username
-        self.imageURL = imageURL
-    }
-}
-
-extension UserListView {
-    final class ViewModel: ObservableObject {
-        let userItems: [UserItem] = [
-            .init(username: "user1"),
-            .init(username: "user2")
-        ]
-    }
-}
-
 struct UserListView: View {
     
     let viewModel: ViewModel

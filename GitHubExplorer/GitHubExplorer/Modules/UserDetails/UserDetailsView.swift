@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-struct RepositoryItem: Identifiable {
-    let id: String
-    let title: String
-    let developmentLanguage: String?
-    let starCount: Int
-    let description: String?
-}
-
-extension UserDetailsView {
-    final class ViewModel: ObservableObject {
-        private let userItem: UserItem
-        
-        var titleText: String {
-            userItem.username
-        }
-        
-        var repositories: [RepositoryItem] {
-            .init(
-                repeating:
-                        .init(
-                            id: "0",
-                            title: "GitHub Project",
-                            developmentLanguage: "Swift",
-                            starCount: 2,
-                            description: nil
-                        ),
-                count: 1
-            )
-        }
-        
-        init(from userItem: UserItem) {
-            self.userItem = userItem
-        }
-    }
-}
-
 struct UserDetailsView: View {
     
     let viewModel: ViewModel
@@ -70,9 +34,7 @@ struct UserDetailsView: View {
     
     @ViewBuilder
     private func buildRepositoryItemView(for repositoryItem: RepositoryItem) -> some View {
-        NavigationLink {
-            
-        } label: {
+        Link(destination: URL(string: "https://google.com")!) {
             ListItemView(
                 viewModel: .init(
                     titleDisplayText: repositoryItem.title,

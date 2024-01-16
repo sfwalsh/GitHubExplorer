@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C6696E4E2B56B03B008460C9 /* GitHubExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E4D2B56B03B008460C9 /* GitHubExplorerApp.swift */; };
-		C6696E502B56B03B008460C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E4F2B56B03B008460C9 /* ContentView.swift */; };
+		C6696E502B56B03B008460C9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E4F2B56B03B008460C9 /* RootView.swift */; };
 		C6696E522B56B03D008460C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6696E512B56B03D008460C9 /* Assets.xcassets */; };
 		C6696E552B56B03D008460C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6696E542B56B03D008460C9 /* Preview Assets.xcassets */; };
 		C6696E5F2B56B03D008460C9 /* GitHubExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E5E2B56B03D008460C9 /* GitHubExplorerTests.swift */; };
 		C6696E692B56B03D008460C9 /* GitHubExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E682B56B03D008460C9 /* GitHubExplorerUITests.swift */; };
 		C6696E6B2B56B03D008460C9 /* GitHubExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E6A2B56B03D008460C9 /* GitHubExplorerUITestsLaunchTests.swift */; };
+		C6696E782B56B762008460C9 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E772B56B762008460C9 /* UserListView.swift */; };
+		C6696E7A2B56BA74008460C9 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E792B56BA74008460C9 /* ListItemView.swift */; };
+		C6696E802B56C0C7008460C9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6696E7F2B56C0C7008460C9 /* Colors.xcassets */; };
+		C6696E822B56C135008460C9 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E812B56C135008460C9 /* Palette.swift */; };
+		C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696E842B56C4BA008460C9 /* UserDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		C6696E4A2B56B03B008460C9 /* GitHubExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6696E4D2B56B03B008460C9 /* GitHubExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubExplorerApp.swift; sourceTree = "<group>"; };
-		C6696E4F2B56B03B008460C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C6696E4F2B56B03B008460C9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C6696E512B56B03D008460C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6696E542B56B03D008460C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C6696E5A2B56B03D008460C9 /* GitHubExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,11 @@
 		C6696E642B56B03D008460C9 /* GitHubExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6696E682B56B03D008460C9 /* GitHubExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubExplorerUITests.swift; sourceTree = "<group>"; };
 		C6696E6A2B56B03D008460C9 /* GitHubExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C6696E772B56B762008460C9 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		C6696E792B56BA74008460C9 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		C6696E7F2B56C0C7008460C9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C6696E812B56C135008460C9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		C6696E842B56C4BA008460C9 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				C6696E4D2B56B03B008460C9 /* GitHubExplorerApp.swift */,
-				C6696E4F2B56B03B008460C9 /* ContentView.swift */,
+				C6696E4F2B56B03B008460C9 /* RootView.swift */,
+				C6696E832B56C138008460C9 /* Utilities */,
+				C6696E7D2B56BB95008460C9 /* Modules */,
+				C6696E7B2B56BA79008460C9 /* View Elements */,
 				C6696E512B56B03D008460C9 /* Assets.xcassets */,
+				C6696E7F2B56C0C7008460C9 /* Colors.xcassets */,
 				C6696E532B56B03D008460C9 /* Preview Content */,
 			);
 			path = GitHubExplorer;
@@ -125,6 +139,55 @@
 				C6696E6A2B56B03D008460C9 /* GitHubExplorerUITestsLaunchTests.swift */,
 			);
 			path = GitHubExplorerUITests;
+			sourceTree = "<group>";
+		};
+		C6696E7B2B56BA79008460C9 /* View Elements */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E7C2B56BA86008460C9 /* List */,
+			);
+			path = "View Elements";
+			sourceTree = "<group>";
+		};
+		C6696E7C2B56BA86008460C9 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E792B56BA74008460C9 /* ListItemView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		C6696E7D2B56BB95008460C9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E7E2B56BB9A008460C9 /* UserList */,
+				C6696E862B56C4BE008460C9 /* UserDetails */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C6696E7E2B56BB9A008460C9 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E772B56B762008460C9 /* UserListView.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		C6696E832B56C138008460C9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E812B56C135008460C9 /* Palette.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C6696E862B56C4BE008460C9 /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C6696E842B56C4BA008460C9 /* UserDetailsView.swift */,
+			);
+			path = UserDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6696E802B56C0C7008460C9 /* Colors.xcassets in Resources */,
 				C6696E552B56B03D008460C9 /* Preview Assets.xcassets in Resources */,
 				C6696E522B56B03D008460C9 /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +321,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6696E502B56B03B008460C9 /* ContentView.swift in Sources */,
+				C6696E502B56B03B008460C9 /* RootView.swift in Sources */,
+				C6696E782B56B762008460C9 /* UserListView.swift in Sources */,
+				C6696E822B56C135008460C9 /* Palette.swift in Sources */,
 				C6696E4E2B56B03B008460C9 /* GitHubExplorerApp.swift in Sources */,
+				C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */,
+				C6696E7A2B56BA74008460C9 /* ListItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,8 +496,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,9 +505,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfwalsh.GitHubExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,8 +529,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,9 +538,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfwalsh.GitHubExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

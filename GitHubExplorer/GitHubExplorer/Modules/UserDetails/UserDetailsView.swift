@@ -7,12 +7,34 @@
 
 import SwiftUI
 
+struct RepositoryItem: Identifiable {
+    let id: String
+    let title: String
+    let developmentLanguage: String?
+    let starCount: Int
+    let description: String?
+}
+
 extension UserDetailsView {
     final class ViewModel: ObservableObject {
         private let userItem: UserItem
         
         var titleText: String {
             userItem.username
+        }
+        
+        var repositories: [RepositoryItem] {
+            .init(
+                repeating:
+                        .init(
+                            id: "0",
+                            title: "GitHub Project",
+                            developmentLanguage: "Swift",
+                            starCount: 2,
+                            description: nil
+                        ),
+                count: 1
+            )
         }
         
         init(from userItem: UserItem) {
@@ -28,21 +50,41 @@ struct UserDetailsView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 2) {
+                LazyVStack(alignment: .leading, spacing: 24) {
                     buildUserDetailsHeader()
-//                    ForEach(viewModel.userItems) { userItem in
-//                    }
-                    
-                }.padding(.top, 16)
+                    Divider()
+                    Section {
+                        ForEach(viewModel.repositories) { repositoryItem in
+                            buildRepositoryItemView(for: repositoryItem)
+                        }
+                    } header: {
+                        Text("Repositories")
+                            .font(.headline)
+                    }
+                }
+                .padding(16)
             }
         }
         .navigationTitle(viewModel.titleText)
     }
     
     @ViewBuilder
+    private func buildRepositoryItemView(for repositoryItem: RepositoryItem) -> some View {
+        NavigationLink {
+            
+        } label: {
+            ListItemView(
+                viewModel: .init(
+                    titleDisplayText: repositoryItem.title,
+                    imageURL: nil
+                )
+            )
+        }
+    }
+    
+    @ViewBuilder
     private func buildUserDetailsHeader() -> some View {
         HStack(alignment: .center) {
-            
                 AsyncImage(url: nil) { image in
                     image.scaledToFill()
                 } placeholder: {
@@ -53,10 +95,11 @@ struct UserDetailsView: View {
                 .background(Palette.listItemBackground)
                 .clipShape(Circle())
                 
-            
             VStack(alignment: .leading, spacing: 8) {
                 Text("Quinn Quinlan")
                     .font(.title3)
+                    .bold()
+                
                 HStack(spacing: 24) {
                     VStack(alignment: .leading) {
                         Text("10")
@@ -69,9 +112,10 @@ struct UserDetailsView: View {
                         Text("Following")
                     }
                 }
-            }.padding(.horizontal)
+            }
+            .foregroundStyle(Palette.text)
+            .padding(.horizontal)
         }
-        .padding(.horizontal, 24)
     }
 }
 

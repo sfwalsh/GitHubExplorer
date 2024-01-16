@@ -33,7 +33,7 @@ struct UserListView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 2) {
+                LazyVStack(alignment: .leading, spacing: 8) {
                     ForEach(viewModel.userItems) { userItem in
                         buildItemView(forUserItem: userItem)
                     }

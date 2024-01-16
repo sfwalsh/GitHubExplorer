@@ -1,5 +1,5 @@
 //
-//  UserDetailRepository.swift
+//  UserRepository.swift
 //  GitHubExplorer
 //
 //  Created by Stephen Walsh on 16/01/2024.
@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-protocol UserDetailRepository {
+protocol UserRepository {
     func fetchUserDetails(userId: String) -> AnyPublisher<UserDetailDTO, Error>
 }
 
-struct DefaultUserDetailRepository: UserDetailRepository {
-    private let dataSource: UserDetailDataSource
+struct DefaultUserRepository: UserRepository {
+    private let dataSource: UserDataSource
 
-    init(dataSource: UserDetailDataSource) {
+    init(dataSource: UserDataSource) {
         self.dataSource = dataSource
     }
 

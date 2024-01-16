@@ -18,8 +18,8 @@ enum UserDetailsBuilder {
             let apiClient = DefaultAPIClient()
             
             // user data stack
-            let userDatasource = RemoteUserDetailDataSource(apiClient: apiClient)
-            let userRepository = DefaultUserDetailRepository(dataSource: userDatasource)
+            let userDatasource = RemoteUserDataSource(apiClient: apiClient)
+            let userRepository = DefaultUserRepository(dataSource: userDatasource)
             let getUserDetails = GetUserDetails(repository: userRepository)
             
             // repo data stack

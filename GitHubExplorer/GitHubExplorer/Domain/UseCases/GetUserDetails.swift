@@ -13,9 +13,9 @@ struct GetUserDetails: UseCase {
     typealias T = RequestValues
     typealias U = UserDetailDTO
     
-    private let repository: UserDetailRepository
+    private let repository: UserRepository
     
-    init(repository: UserDetailRepository) {
+    init(repository: UserRepository) {
         self.repository = repository
     }
     

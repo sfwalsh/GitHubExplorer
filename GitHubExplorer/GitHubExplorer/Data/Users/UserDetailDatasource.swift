@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-protocol UserDetailDataSource {
+protocol UserDataSource {
     func fetchUserDetails(userId: String) -> AnyPublisher<UserDetailDTO, Error>
 }
 
-struct RemoteUserDetailDataSource: UserDetailDataSource {
+struct RemoteUserDataSource: UserDataSource {
     private let apiClient: APIClient
     
     init(apiClient: APIClient) {

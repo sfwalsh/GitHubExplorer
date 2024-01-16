@@ -12,7 +12,7 @@ struct RootView: View {
         NavigationStack {
             UserListBuilder.Default.build(requestValues: .init())
         }
-        .tint(.green)
+        .tint(Palette.accent)
     }
 }
 

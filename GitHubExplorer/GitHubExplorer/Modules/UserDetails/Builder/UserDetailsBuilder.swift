@@ -16,10 +16,17 @@ enum UserDetailsBuilder {
         
         static func build(requestValues: RequestValues) -> UserDetailsView? {
             let apiClient = DefaultAPIClient()
-            let datasource = RemoteUserDetailDataSource(apiClient: apiClient)
-            let repository = DefaultUserDetailRepository(dataSource: datasource)
-            let getUserDetails = GetUserDetails(repository: repository)
-            let getUserRepos = GetUserRepos()
+            
+            // user data stack
+            let userDatasource = RemoteUserDetailDataSource(apiClient: apiClient)
+            let userRepository = DefaultUserDetailRepository(dataSource: userDatasource)
+            let getUserDetails = GetUserDetails(repository: userRepository)
+            
+            // repo data stack
+            let repoDatasource = RemoteUserRepoDatasource(apiClient: apiClient)
+            let repoRepository = DefaultUserRepoRepository(datasource: repoDatasource)
+            let getUserRepos = GetUserRepos(repository: repoRepository)
+            
             let viewModel = UserDetailsView
                 .ViewModel(
                     from: requestValues.userItem,

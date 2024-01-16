@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryDTO: Decodable {
+struct RepoDTO: Decodable {
     enum CodingKeys: String, CodingKey {
         case name
         case url = "html_url"
@@ -32,8 +32,8 @@ struct RepositoryDTO: Decodable {
         
         self.url = url
         self.name = try container.decode(String.self, forKey: .name)
-        self.description = try container.decode(String.self, forKey: .description)
-        self.language = try container.decode(String.self, forKey: .language)
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? nil
+        self.language = try container.decodeIfPresent(String.self, forKey: .language)
         self.stargazersCount = try container.decode(Int.self, forKey: .stargazersCount)
     }
 }

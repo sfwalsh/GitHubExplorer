@@ -21,23 +21,10 @@ extension UserDetailsView {
         }
         
         @Published var userDetail: UserDetailViewItem?
-
-        var repositories: [RepositoryItem] {
-            .init(
-                repeating:
-                        .init(
-                            id: "0",
-                            title: "GitHub Project",
-                            developmentLanguage: "Swift",
-                            starCountText: "2", url: URL(string: "https://googl.com")!
-                        ),
-                count: 1
-            )
-            .filter { $0.url != nil }
-        }
+        @Published var repos: [RepoItem] = []
         
         private var cancellables: Set<AnyCancellable> = []
-
+        
         init(
             from userItem: UserItem,
             getUserDetails: GetUserDetails,
@@ -49,10 +36,15 @@ extension UserDetailsView {
         }
         
         func fetchData() {
+            fetchUserDetails()
+            fetchRepoList()
+        }
+        
+        private func fetchUserDetails() {
             getUserDetails
                 .invoke(requestValues: .init(username: userItem.username))
                 .receive(on: RunLoop.main)
-                .sink { completion in
+                .sink { [weak self] completion in
                     switch completion {
                     case .finished:
                         break
@@ -61,8 +53,24 @@ extension UserDetailsView {
                         break
                     }
                 } receiveValue: { [weak self] userDetailDTO in
-                    print(userDetailDTO)
                     self?.userDetail = UserDetailViewItem(from: userDetailDTO)
+                }
+                .store(in: &cancellables)
+        }
+        
+        private func fetchRepoList() {
+            getUserRepos.invoke(requestValues: .init(username: userItem.username))
+                .receive(on: RunLoop.main)
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        break
+                    }
+                } receiveValue: { [weak self] repoDTOs in
+                    self?.repos = repoDTOs.map { RepoItem(from: $0) }
                 }
                 .store(in: &cancellables)
         }

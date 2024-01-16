@@ -46,7 +46,7 @@ struct RepositoryListItemView: View {
             }
             
             if let developmentLanguage = developmentLanguage {
-                ChipView(text: developmentLanguage)
+                ChipView(text: developmentLanguage).padding(.top, 8)
             }
         }
     }

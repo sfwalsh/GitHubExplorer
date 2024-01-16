@@ -31,7 +31,7 @@ struct UserDetailDTO: Decodable {
         self.avatarURL = URL(string: avatarURLString)
         
         self.username = try container.decode(String.self, forKey: .username)
-        self.fullName = try container.decode(String.self, forKey: .fullName)
+        self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName)
         self.followerCount = try container.decode(Int.self, forKey: .followerCount)
         self.followingCount = try container.decode(Int.self, forKey: .followingCount)
     }

@@ -29,7 +29,7 @@ struct UserDetailsView: View {
                     }
                     Divider()
                     Section {
-                        ForEach(viewModel.repositories) { repositoryItem in
+                        ForEach(viewModel.repos) { repositoryItem in
                             buildRepositoryItemView(for: repositoryItem)
                         }
                     } header: {
@@ -58,7 +58,7 @@ struct UserDetailsView: View {
     }
     
     @ViewBuilder
-    private func buildRepositoryItemView(for repositoryItem: RepositoryItem) -> some View {
+    private func buildRepositoryItemView(for repositoryItem: RepoItem) -> some View {
         if let url = repositoryItem.url {
             Link(destination: url) {
                 RepositoryListItemView(

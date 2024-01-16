@@ -11,10 +11,16 @@ import Combine
 struct GetUserRepos: UseCase {
     // GET /users/*/repos
     typealias T = RequestValues
-    typealias U = UserDetailDTO
-    func invoke(requestValues: RequestValues) -> AnyPublisher<UserDetailDTO, Error> {
-        Fail(error: NSError(domain: "", code: 0))
-            .eraseToAnyPublisher()
+    typealias U = [RepoDTO]
+    
+    private let repository: UserRepoRepository
+    
+    init(repository: UserRepoRepository) {
+        self.repository = repository
+    }
+    
+    func invoke(requestValues: RequestValues) -> AnyPublisher<[RepoDTO], Error> {
+        repository.fetchRepoList(for: requestValues.username)
     }
 }
 

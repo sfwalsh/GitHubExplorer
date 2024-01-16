@@ -13,7 +13,7 @@ struct GetUserDetails: UseCase {
     typealias T = RequestValues
     typealias U = UserDetailDTO
     func invoke(requestValues: RequestValues) -> AnyPublisher<UserDetailDTO, Error> {
-        Fail(error: NSError(domain: "", code: 0))
+        return Fail(error: NSError(domain: "", code: 0))
             .eraseToAnyPublisher()
     }
 }

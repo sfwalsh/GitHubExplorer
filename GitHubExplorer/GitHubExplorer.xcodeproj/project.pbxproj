@@ -32,6 +32,9 @@
 		C6696EA52B56E2E7008460C9 /* GetUserRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EA42B56E2E7008460C9 /* GetUserRepos.swift */; };
 		C6696EA72B56E37D008460C9 /* RepositoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EA62B56E37D008460C9 /* RepositoryDTO.swift */; };
 		C6696EA92B56E6E5008460C9 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EA82B56E6E5008460C9 /* MappingError.swift */; };
+		C6696EAB2B56E87B008460C9 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EAA2B56E87B008460C9 /* ModuleBuilder.swift */; };
+		C6696EAD2B56E8B6008460C9 /* UserListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EAC2B56E8B6008460C9 /* UserListBuilder.swift */; };
+		C6696EB12B56E8DA008460C9 /* UserDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6696EB02B56E8DA008460C9 /* UserDetailsBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		C6696EA42B56E2E7008460C9 /* GetUserRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserRepos.swift; sourceTree = "<group>"; };
 		C6696EA62B56E37D008460C9 /* RepositoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDTO.swift; sourceTree = "<group>"; };
 		C6696EA82B56E6E5008460C9 /* MappingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
+		C6696EAA2B56E87B008460C9 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		C6696EAC2B56E8B6008460C9 /* UserListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListBuilder.swift; sourceTree = "<group>"; };
+		C6696EB02B56E8DA008460C9 /* UserDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,7 @@
 		C6696E7D2B56BB95008460C9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C6696EAA2B56E87B008460C9 /* ModuleBuilder.swift */,
 				C6696E7E2B56BB9A008460C9 /* UserList */,
 				C6696E862B56C4BE008460C9 /* UserDetails */,
 			);
@@ -201,6 +208,7 @@
 			children = (
 				C6696E772B56B762008460C9 /* UserListView.swift */,
 				C6696E8D2B56D117008460C9 /* UserListView+ViewModel.swift */,
+				C6696EAE2B56E8D6008460C9 /* Builder */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 		C6696E862B56C4BE008460C9 /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
+				C6696EAF2B56E8DA008460C9 /* Builder */,
 				C6696E842B56C4BA008460C9 /* UserDetailsView.swift */,
 				C6696E8F2B56D127008460C9 /* UserDetailsView+ViewModel.swift */,
 				C6696E952B56D3CC008460C9 /* Bespoke Subviews */,
@@ -275,6 +284,22 @@
 				C6696EA62B56E37D008460C9 /* RepositoryDTO.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C6696EAE2B56E8D6008460C9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C6696EAC2B56E8B6008460C9 /* UserListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		C6696EAF2B56E8DA008460C9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C6696EB02B56E8DA008460C9 /* UserDetailsBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +436,7 @@
 				C6696E9D2B56E0B5008460C9 /* UseCase.swift in Sources */,
 				C6696E502B56B03B008460C9 /* RootView.swift in Sources */,
 				C6696E902B56D127008460C9 /* UserDetailsView+ViewModel.swift in Sources */,
+				C6696EAB2B56E87B008460C9 /* ModuleBuilder.swift in Sources */,
 				C6696E782B56B762008460C9 /* UserListView.swift in Sources */,
 				C6696E972B56D57C008460C9 /* ChipView.swift in Sources */,
 				C6696EA72B56E37D008460C9 /* RepositoryDTO.swift in Sources */,
@@ -422,6 +448,8 @@
 				C6696E922B56D1EC008460C9 /* RepositoryListItemView.swift in Sources */,
 				C6696E4E2B56B03B008460C9 /* GitHubExplorerApp.swift in Sources */,
 				C6696E852B56C4BA008460C9 /* UserDetailsView.swift in Sources */,
+				C6696EAD2B56E8B6008460C9 /* UserListBuilder.swift in Sources */,
+				C6696EB12B56E8DA008460C9 /* UserDetailsBuilder.swift in Sources */,
 				C6696E992B56DF5A008460C9 /* GetUserDetails.swift in Sources */,
 				C6696E7A2B56BA74008460C9 /* ListItemView.swift in Sources */,
 				C6696E882B56D0C4008460C9 /* RepositoryItem.swift in Sources */,

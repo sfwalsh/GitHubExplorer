@@ -26,7 +26,8 @@ struct UserListView: View {
     @ViewBuilder
     private func buildItemView(forUserItem userItem: UserItem) -> some View {
         NavigationLink {
-            UserDetailsView(viewModel: .init(from: userItem))
+            UserDetailsBuilder.Default
+                .build(requestValues: .init(userItem: userItem))
         } label: {
             ListItemView(
                 viewModel: .init(

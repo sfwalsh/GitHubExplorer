@@ -11,6 +11,10 @@ extension UserDetailsView {
     final class ViewModel: ObservableObject {
         private let userItem: UserItem
         
+        // MARK: Use Cases
+        private let getUserDetails: GetUserDetails
+        private let getUserRepos: GetUserRepos
+        
         var titleText: String {
             userItem.username
         }
@@ -29,8 +33,14 @@ extension UserDetailsView {
             .filter { $0.url != nil }
         }
         
-        init(from userItem: UserItem) {
+        init(
+            from userItem: UserItem,
+            getUserDetails: GetUserDetails,
+            getUserRepos: GetUserRepos
+        ) {
             self.userItem = userItem
+            self.getUserDetails = getUserDetails
+            self.getUserRepos = getUserRepos
         }
     }
 }

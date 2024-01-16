@@ -87,5 +87,6 @@ struct UserDetailsView: View {
 }
 
 #Preview {
-    UserDetailsView(viewModel: .init(from: .init(username: "username")))
+    let item = UserItem(username: "Quinlan")
+    return UserDetailsBuilder.Default.build(requestValues: .init(userItem: item))
 }

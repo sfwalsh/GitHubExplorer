@@ -10,7 +10,7 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         NavigationStack {
-            UserListView(viewModel: .init())
+            UserListBuilder.Default.build(requestValues: .init())
         }
         .tint(.green)
     }
